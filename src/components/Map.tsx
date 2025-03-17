@@ -165,7 +165,8 @@ const Map: React.FC = () => {
         </CardContent>
       </Card>
 
-      <style jsx>{`
+      <style>
+        {`
         .map-marker {
           position: absolute;
           width: 20px;
@@ -216,7 +217,8 @@ const Map: React.FC = () => {
           border: 6px solid transparent;
           border-top-color: white;
         }
-      `}</style>
+        `}
+      </style>
     </div>
   );
 };

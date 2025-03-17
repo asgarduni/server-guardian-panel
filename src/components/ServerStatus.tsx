@@ -91,11 +91,11 @@ const ServerStatus: React.FC = () => {
             <div className="text-2xl font-bold">{stats.cpuLoad.toFixed(1)}%</div>
             <Progress 
               value={stats.cpuLoad} 
-              className="h-2 mt-2"
-              indicatorClassName={cn(
-                stats.cpuLoad > 80 ? "bg-destructive" : 
-                stats.cpuLoad > 50 ? "bg-amber-500" : 
-                "bg-primary"
+              className={cn(
+                "h-2 mt-2",
+                stats.cpuLoad > 80 ? "bg-secondary [&>div]:bg-destructive" : 
+                stats.cpuLoad > 50 ? "bg-secondary [&>div]:bg-amber-500" : 
+                "bg-secondary [&>div]:bg-primary"
               )}
             />
           </CardContent>
@@ -112,11 +112,11 @@ const ServerStatus: React.FC = () => {
             </div>
             <Progress 
               value={memoryUsage} 
-              className="h-2 mt-2"
-              indicatorClassName={cn(
-                memoryUsage > 80 ? "bg-destructive" : 
-                memoryUsage > 50 ? "bg-amber-500" : 
-                "bg-primary"
+              className={cn(
+                "h-2 mt-2",
+                memoryUsage > 80 ? "bg-secondary [&>div]:bg-destructive" : 
+                memoryUsage > 50 ? "bg-secondary [&>div]:bg-amber-500" : 
+                "bg-secondary [&>div]:bg-primary"
               )}
             />
           </CardContent>
