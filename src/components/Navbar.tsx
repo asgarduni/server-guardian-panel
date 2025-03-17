@@ -8,7 +8,8 @@ import {
   Settings, 
   Menu, 
   X, 
-  LogOut 
+  LogOut,
+  Database
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -48,15 +49,15 @@ const Navbar = () => {
     try {
       await logout();
       toast({
-        title: "Logout successful",
-        description: "You have been logged out successfully.",
+        title: "Logout realizado com sucesso",
+        description: "Você foi desconectado com sucesso.",
       });
       // Redirect to login page
       window.location.href = "/";
     } catch (error) {
       toast({
-        title: "Logout failed",
-        description: "An error occurred during logout.",
+        title: "Falha no logout",
+        description: "Ocorreu um erro durante o logout.",
         variant: "destructive",
       });
     }
@@ -94,9 +95,10 @@ const Navbar = () => {
 
         <div className="flex-1 py-6 px-3 space-y-1 overflow-y-auto">
           <NavItem to="/dashboard" icon={LayoutDashboard} label="Dashboard" onClick={closeMenu} />
-          <NavItem to="/devices" icon={Smartphone} label="Devices" onClick={closeMenu} />
-          <NavItem to="/users" icon={Users} label="Users" onClick={closeMenu} />
-          <NavItem to="/settings" icon={Settings} label="Settings" onClick={closeMenu} />
+          <NavItem to="/devices" icon={Smartphone} label="Dispositivos" onClick={closeMenu} />
+          <NavItem to="/users" icon={Users} label="Usuários" onClick={closeMenu} />
+          <NavItem to="/database" icon={Database} label="Banco de Dados" onClick={closeMenu} />
+          <NavItem to="/settings" icon={Settings} label="Configurações" onClick={closeMenu} />
         </div>
 
         <div className="p-3 border-t">
@@ -106,7 +108,7 @@ const Navbar = () => {
             onClick={handleLogout}
           >
             <LogOut className="h-4 w-4 mr-2" />
-            <span className="text-sm">Logout</span>
+            <span className="text-sm">Sair</span>
           </Button>
         </div>
       </nav>
